@@ -1,0 +1,241 @@
+CREATE table client_master_2(
+   clientno varchar2(6),
+   Name varchar2(20),
+   Address1 varchar2(30),
+   Address2 varchar2(30),
+   City varchar2(15),
+   pincode number (8),
+   state varchar2(15),
+   baldue number (10,2));
+
+insert into client_master_2 values('C00001','rakesh joshi','','','mumbai',400054,'maharastra',15000);
+insert into client_master_2 values('C00002','mayur patel','','','madras',780001,'tamilnadu',0);
+insert into client_master_2 values('C00003','ishita mehta','','','mumbai',400057,'maharastra',5000);
+insert into client_master_2 values('C00004','amit solanki','','','bangalore',560001,'karnataka',0);
+insert into client_master_2 values('C00005','hiren pandya','','','mumbai',400060,'maharastra',2000);
+insert into client_master_2 values('C00006','dipak sharma','','','bangalore',5600050,'karnataka',0);
+
+select *from client_master_2;
+
+CREATE table salesman_master_2(
+   salesmanno varchar2(6),
+   s_Name varchar2(20),
+   Address1 varchar2(30),
+   Address2 varchar2(30),
+   City varchar2(20),
+   pincode number (8),
+   state varchar2(20),
+   saleamt number (8,2),
+   tgttoget number (6,2),
+   ytdsales number (6,2),
+   remark varchar2 (60));
+
+insert into salesman_master_2 values('S00001','Aman','A/14','worli','mumbai',400002,'maharastra',3000,100,50,'good');
+insert into salesman_master_2 values('S00002','Omkar','65','nariman','mumbai',400001,'maharastra',3000,200,100,'good');
+insert into salesman_master_2 values('S00003','raj','p-7','bandra','mumbai',400032,'maharastra',3000,200,100,'good');
+insert into salesman_master_2 values('S00004','ashish','a/5','juhu','mumbai',400044,'maharastra',3000,200,100,'good');
+
+select *from salesman_master_2;
+
+CREATE TABLE Product_master_2 (
+    ProductNo VARCHAR(10) PRIMARY KEY,
+    Description VARCHAR(50),
+    ProfitPercent DECIMAL(4,2),
+    UnitMaster VARCHAR(20),
+    QtyOnHand INT,
+    RecordLvl INT,
+    SellPrice DECIMAL(10,2),
+    CostPrice DECIMAL(10,2)
+);
+INSERT INTO product_master_2
+VALUES ('P00001', 'T-Shirts', 5, 'Piece', 200, 50, 350, 250);
+
+INSERT INTO product_master_2
+VALUES ('P0345', 'Shirts', 6, 'Piece', 150, 50, 500, 350);
+
+INSERT INTO product_master_2
+VALUES ('P06734', 'Cotton Jeans', 5, 'Piece', 100, 20, 600, 450);
+
+INSERT INTO product_master_2
+VALUES ('P07865', 'Jeans', 5, 'Piece', 100, 20, 750, 500);
+
+
+INSERT INTO product_master_2
+VALUES ('P07868', 'Trousers', 2, 'Piece', 150, 50, 850, 550);
+
+
+INSERT INTO product_master_2
+VALUES ('P07885', 'Pull Overs', 2.5, 'Piece', 80, 30, 700, 450);
+
+
+INSERT INTO product_master_2
+VALUES ('P07965', 'Denim Shirts', 4, 'Piece', 100, 40, 350, 250);
+
+INSERT INTO product_master_2
+VALUES ('P07975', 'Lycra Tops', 5, 'Piece', 70, 30, 300, 175);
+
+
+INSERT INTO product_master_2
+VALUES ('P08865', 'Skirts', 5, 'Piece', 75, 30, 450, 300);
+
+SELECT * FROM product_master_2;
+
+\\QUERY
+
+SELECT Name
+FROM Client_Master_2;
+
+SELECT *
+FROM Client_Master_2;
+
+SELECT Name, City, State
+FROM Client_Master_2;
+
+SELECT Description
+FROM Product_Master_2;
+
+SELECT *
+FROM Client_Master_2
+WHERE City='Mumbai';
+
+SELECT SalesmanName
+FROM SalesmanMaster_2
+WHERE SalAmt=3000;
+
+
+UPDATE CLIENT_MASTER_2
+SET CITY = 'Bangalore'
+WHERE CLIENTNO = 'C00005';
+
+UPDATE CLIENT_MASTER_2
+SET BALDUE = 1000
+WHERE CLIENTNO = 'C00001';
+
+UPDATE PRODUCT_MASTER_2
+SET COSTPRICE = 950
+WHERE DESCRIPTION = 'Trousers';
+
+UPDATE SALESMANMASTER_2
+SET CITY = 'Pune';
+
+UPDATE PRODUCT_MASTER_2
+SET SELLPRICE = 350
+WHERE DESCRIPTION = 'Lycra Tops';
+
+UPDATE SALESMANMASTER_2
+SET ADDRESS1='A-10',
+    ADDRESS2='MG Road',
+    CITY='Pune',
+    PINCODE=411001,
+    STATE='Maharashtra'
+WHERE SALESMANNO='S00002';
+
+DELETE FROM SALESMANMASTER_2
+WHERE SALAMT = 3500;
+
+DELETE FROM PRODUCT_MASTER_2
+WHERE QTYONHAND = 100;
+
+DELETE FROM CLIENT_MASTER_2
+WHERE STATE = 'Tamilnadu';
+
+
+ALTER TABLE CLIENT_MASTER_2
+ADD TELEPHONE NUMBER(10);
+
+ALTER TABLE PRODUCT_MASTER_2
+MODIFY SELLPRICE NUMBER(10,2);
+
+ALTER TABLE PRODUCT_MASTER_2
+ADD PROFIT NUMBER(12);
+
+ALTER TABLE PRODUCT_MASTER_2
+DROP COLUMN PROFIT;
+
+ALTER TABLE SALESMANMASTER_2
+RENAME TO SMAN_MAST;
+
+DROP TABLE CLIENT_MASTER_2;
+
+
+\\class work
+	*string function
+select lower ('TRUPTI')"lower" from dual;
+select upper ('trupti')"upper" from dual; 
+select INITCAP('palan trupti')"capital" from dual;
+select SUBSTR('substring',3,7)"SUB STRING" from dual;
+select LPAD('Trupti',10,'.')"LPAD" from dual;
+select RPAD('Trupti',10,'.')"RPAD" from dual;
+select LTRIM('TRUPTI','T')"LTRIM" from dual;
+select RTRIM('TRUPTI','I')"RTRIM" from dual;
+select  chr(84)|| chr(82)|| chr(85)|| chr(80)|| chr(84)|| chr(73)"ascii" from dual;
+select length('Palan Trupti')"length" from dual;
+select INSTR('THIS IS A STRING PROGRAM','G') from dual;
+select CONCAT(concat(e_name,' '),job),e_name,job from empp;
+
+	*numeric function
+select ABS(-456.55)"absolute" from dual;
+select POWER(25,2)"raised" from dual;
+select ROUND(485.48589845,4)"Round" from dual;
+select SQRT(6084)"Square root" from dual;
+select MOD(15,7)"MOD" from dual;
+select FLOOR (24.8)"Floor" from dual;
+select CEIL(24.8)"Ceil" from dual;
+select exp(2)"expo" from dual;
+select greatest(10,15,-25,0,54,48,85,101) from dual;
+select least(10,15,-25,0,54,48,85,101) from dual;
+SELECT COUNT(*) FROM TY;
+SELECT SUM(salary) FROM TY;
+SELECT SUM(salary) FROM TY WHERE name = 'jay';
+SELECT MAX(salary) FROM TY;
+SELECT MIN(salary) FROM TY;
+
+	*general function
+select translate ('12345','352','bca')from dual;
+select replace('jack and jue','j','bl')from dual;
+select chr(65)||chr(66)||chr(67) "character" from dual;
+select coalesce(null,null,'hello',null,'bca')from dual;
+select decode(3057,3057,'equal','not equal')from dual;
+
+
+select to_date(sysdate,'dd-mm-yy')"today date"from dual;
+select add_months(sysdate,2)from dual;
+select last_day(sysdate)from dual;
+select months_between('31-dec-2015','31-dec-2017')from dual;
+select next_day(sysdate,'sunday')from dual;
+select extract(year from sysdate)from dual;
+select extract(month from sysdate)from dual;
+select systimestamp from dual;
+
+
+Assignment 3
+CREATE TABLE student_data (
+s_id NUMBER(3),
+s_nm VARCHAR2(30),
+per NUMBER(5,2),
+class VARCHAR2(5),
+DOB DATE,
+city VARCHAR2(20) );
+
+INSERT INTO student_data VALUES(1,'Amit',78.50,'A','15-MAY-2005','Rajkot');
+INSERT INTO student_data VALUES(2,'Bhavya',45.00,'B','20-JUN-2004','Surat');
+INSERT INTO student_data VALUES(3,'Chirag',67.25,'A','10-JAN-2005','Ahmedabad');
+INSERT INTO student_data VALUES(4,'Dhruvi',88.00,'B','05-MAR-2006','Rajkot');
+INSERT INTO student_data VALUES(5,'Darshan',52.50,'C','18-AUG-2004','Surat');
+INSERT INTO student_data VALUES(6,'Hetal',91.75,'A','25-DEC-2005','Bhavnagar');
+INSERT INTO student_data VALUES(7,'Jignesh',39.50,'B','12-FEB-2004','Ahmedabad');
+INSERT INTO student_data VALUES(8,'Kavya',73.00,'C','30-SEP-2005','Surat');
+INSERT INTO student_data VALUES(9,'Mehul',48.25,'B','22-NOV-2004','Rajkot');
+INSERT INTO student_data VALUES(10,'Disha',84.50,'A','14-APR-2005','Ahmedabad');
+
+SELECT * FROM student_data;
+UPDATE student_data SET class = 'B' WHERE city = 'Surat';
+SELECT DISTINCT class FROM student_data;
+SELECT * FROM student_data ORDER BY per;
+SELECT s_nm FROM student_data WHERE s_nm LIKE 'D%';
+SELECT class, ROUND(AVG(per),2) AS average_per FROM student_data GROUP BY class;
+SELECT * FROM student_data WHERE EXTRACT(YEAR FROM DOB) BETWEEN 2004 AND 2005;
+SELECT * FROM student_data WHERE city = 'Amreli' AND class = 'B';
+ALTER TABLE student_data
+ADD mobile_no VARCHAR2(15);
+DESC student_data;
